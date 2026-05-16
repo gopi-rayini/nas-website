@@ -54,7 +54,6 @@ const BackgroundAnimation: React.FC = () => {
 
     const init = () => {
       particles = [];
-      if (!canvas) return;
       const count = Math.min(Math.floor(window.innerWidth / 15), 100);
       for (let i = 0; i < count; i++) {
         particles.push(new Particle(canvas.width, canvas.height));
@@ -78,7 +77,7 @@ const BackgroundAnimation: React.FC = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            ctx.strokeStyle = "rgba(150, 150, 150, " + ((1 - distance / 150) * 0.2) + ")";
+            ctx.strokeStyle = `rgba(150, 150, 150, ${(1 - distance / 150) * 0.2})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);

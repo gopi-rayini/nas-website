@@ -47,13 +47,10 @@
 .main-layout {
   flex: 1;
   padding: 4rem 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .page-content {
   animation: fadeIn 0.5s ease;
-  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -235,26 +232,24 @@
   border-top: 1px solid #1a1a1a;
 }
 
-/* Centered Login Styles */
-.login-page-wrapper {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .header { flex-direction: column; height: auto; padding: 1.5rem; gap: 1rem; }
+  .grid { grid-template-columns: 1fr; }
+  .modal-content { padding: 1.5rem; }
+  .modal-carousel img { height: 200px; }
 }
 
+/* Login Page Styles */
 .login-container {
   max-width: 450px;
-  width: 100%;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-align: left;
 }
 
 .form-group {
@@ -304,12 +299,4 @@
   color: #ff4444;
   font-size: 0.85rem;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  .title { font-size: 2.5rem; }
-  .header { flex-direction: column; height: auto; padding: 1.5rem; gap: 1rem; }
-  .grid { grid-template-columns: 1fr; }
-  .modal-content { padding: 1.5rem; }
-  .modal-carousel img { height: 200px; }
 }
