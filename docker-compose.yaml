@@ -1,0 +1,13 @@
+services:
+  nas-website:
+    build: .
+    container_name: nas-website
+    ports:
+      - "8080:80"
+    restart: always
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare-tunnel
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
