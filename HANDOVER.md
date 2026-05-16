@@ -20,12 +20,19 @@ To prevent the leakage of sensitive data (Cloudflare tokens, NAS credentials) to
 *   **Verification:** ALWAYS run "grep -r eyJh ." (or other known secret prefixes) before committing.
 *   **Accidental Leak?** If a secret is committed, you MUST perform an orphan-branch squash and force-push to purge the history. Standard reverts are NOT enough.
 
-## 4. Version Control & Publishing
+## 4. Branch Management & Progression
+*   **Primary Branch:** `main`. All other branches (`master`, `temp`, etc.) have been removed to prevent state fragmentation.
+*   **Progression Maintenance:** 
+    *   Before making significant changes, verify the current state against the `main` branch.
+    *   If a feature appears missing, check `git reflog` for detached commits from previous refactors.
+    *   To prevent "revert regressions", always verify that new UI components (Modals, Animations, Gallery) are preserved when editing core pages like `Projects.tsx` or `Home.tsx`.
+
+## 5. Version Control & Publishing
 1.  **Stage Changes:** "git add ." (Verify .env is NOT listed).
 2.  **Commit:** "git commit -m \"Brief description of changes\"".
 3.  **Push:** "git push origin main".
 
-## 5. Runbook: Website Down?
+## 6. Runbook: Website Down?
 1.  **Locate Project:** Verify you are in the directory containing docker-compose.yaml.
 2.  **Verify Environment:** 
     *   If docker is missing: Install it (sudo apt install docker.io).
@@ -33,7 +40,7 @@ To prevent the leakage of sensitive data (Cloudflare tokens, NAS credentials) to
 3.  **Port Conflict:** Ensure port 8080 isn't being used by another service.
 4.  **Redeploy:** Execute the "Clean build and redeploy" commands above.
 
-## 6. Key Features
+## 7. Key Features
 *   **SPA Support:** nginx.conf and Dockerfile handle client-side routing and security headers.
 *   **Non-Root Docker:** The Dockerfile is hardened to run as a non-privileged nginx user.
 *   **Animations:** The landing page features a BackgroundAnimation.tsx canvas effect.
