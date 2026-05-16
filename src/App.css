@@ -47,10 +47,13 @@
 .main-layout {
   flex: 1;
   padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-content {
   animation: fadeIn 0.5s ease;
+  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -232,24 +235,26 @@
   border-top: 1px solid #1a1a1a;
 }
 
-@media (max-width: 768px) {
-  .title { font-size: 2.5rem; }
-  .header { flex-direction: column; height: auto; padding: 1.5rem; gap: 1rem; }
-  .grid { grid-template-columns: 1fr; }
-  .modal-content { padding: 1.5rem; }
-  .modal-carousel img { height: 200px; }
+/* Centered Login Styles */
+.login-page-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-/* Login Page Styles */
 .login-container {
   max-width: 450px;
-  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  text-align: left;
 }
 
 .form-group {
@@ -299,4 +304,43 @@
   color: #ff4444;
   font-size: 0.85rem;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .header { flex-direction: column; height: auto; padding: 1.5rem; gap: 1rem; }
+  .grid { grid-template-columns: 1fr; }
+  .modal-content { padding: 1.5rem; }
+  .modal-carousel img { height: 200px; }
+}
+
+/* Gallery Section */
+.gallery-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  white-space: nowrap;
+}
+
+.gallery-scroller {
+  display: inline-flex;
+  gap: 1rem;
+  animation: scroll 20s linear infinite;
+}
+
+.gallery-image {
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #333;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
