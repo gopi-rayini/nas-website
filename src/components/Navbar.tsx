@@ -16,6 +16,12 @@ const Navbar: React.FC = () => {
           Home
         </Link>
         <Link 
+          to="/profile" 
+          className={location.pathname === '/profile' ? 'active' : ''}
+        >
+          Profile
+        </Link>
+        <Link 
           to="/nas" 
           className={location.pathname === '/nas' ? 'active' : ''}
         >

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import Navbar from './components/Navbar';
 import BackgroundAnimation from './components/BackgroundAnimation';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import NasDashboard from './pages/NasDashboard';
 import Projects from './pages/Projects';
 import Login from './pages/Login';
@@ -29,6 +30,7 @@ function App() {
         <main className="main-layout">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route 
               path="/nas" 
