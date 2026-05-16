@@ -1,4 +1,4 @@
-# Project Handover: Gopi Rayini Portfolio & NAS Dashboard
+# Project Handover: Gopi Rayini Monolith Website Project
 
 ## 1. Project Environment
 *   **Root Directory:** /mnt/nas/docker/nas-website (Typically a CIFS/SMB mount from 192.168.1.215).
@@ -25,19 +25,7 @@ To prevent the leakage of sensitive data (Cloudflare tokens, NAS credentials) to
 2.  **Commit:** "git commit -m \"Brief description of changes\"".
 3.  **Push:** "git push origin main".
 
-## 5. Maintenance Commands
-\`\`\`bash
-# 1. Navigate to the project root
-cd /path/to/mount/nas-website
-
-# 2. Clean build and redeploy (Applies .env and Nginx config)
-sudo docker compose build --no-cache && sudo docker compose up -d
-
-# 3. View logs
-sudo docker compose logs -f nas-website
-\`\`\`
-
-## 6. Runbook: Website Down?
+## 5. Runbook: Website Down?
 1.  **Locate Project:** Verify you are in the directory containing docker-compose.yaml.
 2.  **Verify Environment:** 
     *   If docker is missing: Install it (sudo apt install docker.io).
@@ -45,7 +33,7 @@ sudo docker compose logs -f nas-website
 3.  **Port Conflict:** Ensure port 8080 isn't being used by another service.
 4.  **Redeploy:** Execute the "Clean build and redeploy" commands above.
 
-## 7. Key Features
+## 6. Key Features
 *   **SPA Support:** nginx.conf and Dockerfile handle client-side routing and security headers.
 *   **Non-Root Docker:** The Dockerfile is hardened to run as a non-privileged nginx user.
 *   **Animations:** The landing page features a BackgroundAnimation.tsx canvas effect.

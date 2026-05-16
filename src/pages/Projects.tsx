@@ -26,11 +26,6 @@ const Projects: React.FC = () => {
       title: "iPad 4 Retina PC Monitor",
       description: "Conversion of a retired iPad 4 display into a high-density secondary PC monitor.",
       tech: ["Display Driver Boards", "Custom Housing"]
-    },
-    {
-      title: "Chabudai Futon Frame",
-      description: "Japanese-style low-profile bed frame built with traditional joinery concepts.",
-      tech: ["Woodworking", "CAD Design"]
     }
   ];
 
